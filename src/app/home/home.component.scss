@@ -1,0 +1,64 @@
+.k-icon-24 {
+    font-size: 24px; /* Sets icon size to 32px */
+}
+
+.k-icon-32 {
+    font-size: 32px; /* Sets icon size to 32px */
+}
+
+.k-icon-48 {
+    font-size: 48px; /* Sets icon size to 48px */
+}
+
+.k-icon-64 {
+    font-size: 64px; /* Sets icon size to 64px */
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.add-criteria {
+  color: #ff6b58;
+  cursor: pointer;
+  margin: 8px 5px 0;
+  float: left;
+}
+
+.filter-container {
+  .filter-group {
+    width: auto;
+    float: left;
+    clear: both;
+    margin: 5px 0;
+  }
+
+  .filter-buttons {
+    width: 100%;
+    clear: both;
+    margin-top: 20px;
+    display: inline-block;
+
+    button {
+      width: 100px;
+      margin: 0 5px;
+    }
+  }
+}
+
+.query-string {
+  margin: 20px 0;
+
+  span {
+    padding: 10px 0;
+    display: block;
+  }
+}
+
+.filter-operator {
+  float: left;
+  width: 100%;
+  display: inline-block;
+  margin: 10px 0;
+}

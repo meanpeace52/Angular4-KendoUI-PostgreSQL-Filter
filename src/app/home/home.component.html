@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>{{title}}</h1>
+
+  <div class="filter-container">
+    <fieldset>
+      <legend>Filter:</legend>
+      <div class="filter-operator">
+        <kendo-dropdownlist
+              [defaultItem]="'AND/OR'"
+              [data]="operatorVals3"
+              [(ngModel)]="operator3">
+        </kendo-dropdownlist>
+      </div>
+      <ng-container *ngIf="criterias?.length > 0">
+        <div class="filter-group" *ngFor="let criteria of criterias; let i=index">
+          <kendo-dropdownlist
+                *ngIf="criterias[i].showOperator2"
+                [defaultItem]="''"
+                [data]="operatorVals2"
+                [(ngModel)]="criterias[i].operator2"
+                (ngModelChange)="onChange('operator2', criterias[i].operator2, i)">
+          </kendo-dropdownlist>
+          <kendo-dropdownlist
+                *ngIf="criterias[i].showField"
+                [defaultItem]="'Field'"
+                [data]="fieldVals"
+                [(ngModel)]="criterias[i].field"
+                (ngModelChange)="onChange('field', criterias[i].field, i)">
+          </kendo-dropdownlist>
+          <kendo-dropdownlist
+                *ngIf="criterias[i].showOperator"
+                [defaultItem]="'Criteria Operator'"
+                [data]="criterias[i].operatorVals"
+                [(ngModel)]="criterias[i].operator"
+                (ngModelChange)="onChange('operator', criterias[i].operator, i)">
+          </kendo-dropdownlist>
+          <input type="text" name="value" class="k-textbox" placeholder="Value" [(ngModel)]="criterias[i].val" (ngModelChange)="onChange('value', criterias[i].val, i)" *ngIf="criterias[i].showVal" />
+        </div>
+      </ng-container>
+      <span kendoButton (click)="addCriteria();" class="k-icon k-i-plus-circle k-icon-24 add-criteria"></span>
+      <div class="filter-buttons">
+        <button kendoButton (click)="clear()">Clear</button>
+        <button kendoButton (click)="filter()" [primary]="true">Filter</button>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="query-string">
+    <fieldset>
+      <legend>Query:</legend>
+      <span>{{query_string}}</span>
+    </fieldset>
+  </div>
+</div>
